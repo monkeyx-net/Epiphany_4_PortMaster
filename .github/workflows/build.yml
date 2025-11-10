@@ -91,6 +91,7 @@ jobs:
 
       - name: Build binary
         run: |
+          autoreconf -fiv
           ./configure
           make
 
