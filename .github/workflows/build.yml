@@ -43,7 +43,7 @@ jobs:
       - name: Parse port.json
         id: parse-json
         run: |
-          PORT_JSON_PATH="latest/scavenger/port.json"
+          PORT_JSON_PATH="latest/epiphany/port.json"
           if [ ! -f "$PORT_JSON_PATH" ]; then
             echo "Error: $PORT_JSON_PATH not found" && exit 1
           fi
