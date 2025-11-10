@@ -90,6 +90,7 @@ jobs:
 
       - name: Build binary
         run: |
+          ./configure
           make
 
       - name: Strip and package binary
