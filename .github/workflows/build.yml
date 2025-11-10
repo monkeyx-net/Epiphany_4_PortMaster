@@ -119,12 +119,14 @@ jobs:
     steps:
       - name: Checkout repository (for latest/ folder and other files)
         uses: actions/checkout@v4
+        run: |
+          GAME_FOLDER="${{ needs.build.outputs.game_folder }}"
 
       - name: Download all binary artifacts
         uses: actions/download-artifact@v4
         with:
           path: artifacts
-          pattern: scavenger-linux-*
+          pattern: ${{ steps.parse-json.outputs.game_folder }}-linux-*
           merge-multiple: true
 
       - name: Extract binaries to correct locations
