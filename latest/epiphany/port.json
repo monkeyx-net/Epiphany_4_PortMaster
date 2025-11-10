@@ -1,13 +1,13 @@
 {
   "version": 4,
-  "name": "scavenger.zip",
+  "name": "epiphany.zip",
   "items": [
-    "Scavenger.sh",
-    "scavenger"
+    "Epiphany.sh",
+    "epiphany"
   ],
   "items_opt": [],
   "attr": {
-    "title": "Scavenger",
+    "title": "Epiphany",
     "porter": [
       "monkeyx-net"
     ],
@@ -16,7 +16,7 @@
     "inst": "Ready to play",
     "inst_md": null,
     "genres": [
-      "platformer"
+      "puzzle"
     ],
     "image": null,
     "rtr": true,
