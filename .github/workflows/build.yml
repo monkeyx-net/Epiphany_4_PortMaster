@@ -100,7 +100,7 @@ jobs:
           GAME_EXE="${{ steps.parse-json.outputs.game_exe }}"
           GAME_FOLDER="${{ steps.parse-json.outputs.game_folder }}"
           mkdir -p dist
-          cp ${GAME_EXE} dist/${GAME_EXE}-${{ matrix.arch }}
+          cp src/${GAME_EXE} dist/${GAME_EXE}-${{ matrix.arch }}
           strip dist/${GAME_EXE}-${{ matrix.arch }} || true
           tar -czf ${GAME_FOLDER}-linux-${{ matrix.arch }}.tar.gz -C dist ${GAME_EXE}-${{ matrix.arch }}
           ls -lh *.tar.gz
