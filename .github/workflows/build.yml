@@ -90,6 +90,7 @@ jobs:
 
       - name: Build binary
         run: |
+          make clean
           ./configure
           make
 
