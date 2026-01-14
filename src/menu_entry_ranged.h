@@ -31,6 +31,7 @@ class Menu_Entry_Ranged : public Menu_Entry
 		Uint32 m_current_value;
 		
 		std::string m_string;
+		std::string m_cached_string;
 	
 	public:
 

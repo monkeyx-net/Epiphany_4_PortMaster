@@ -177,8 +177,8 @@ game.o: game.cpp /usr/include/stdc-predef.h dephine.h ../config.h \
  /usr/include/SDL/SDL_types.h game.h fonts/font_manager.h dephine.h \
  surface_manager.h fonts/font.h resource.h fonts/SFont.h game_timer.h \
  screen.h sprite.h surface.h menu.h input.h level.h direction.h \
- entity_manager.h sfx.h /usr/include/c++/15.2.1/cassert \
- /usr/include/assert.h
+ entity_manager.h sfx.h /usr/include/c++/15.2.1/cstring \
+ /usr/include/c++/15.2.1/cassert /usr/include/assert.h
 /usr/include/stdc-predef.h:
 dephine.h:
 ../config.h:
@@ -465,5 +465,6 @@ level.h:
 direction.h:
 entity_manager.h:
 sfx.h:
+/usr/include/c++/15.2.1/cstring:
 /usr/include/c++/15.2.1/cassert:
 /usr/include/assert.h:

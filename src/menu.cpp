@@ -157,7 +157,11 @@ Sint32 Menu::go()
 	
 	Menu_List_Epiphany* m_menu_list = new Menu_List_Epiphany(m_unsolved_level);
 
-	render_menu_list(m_menu_list, config->get_screen_size_y()/2, config->get_screen_size_x()/2, config->get_screen_size_y()/12);
+	if(render_menu_list(m_menu_list, config->get_screen_size_y()/2, config->get_screen_size_x()/2, config->get_screen_size_y()/12))
+	{
+		delete m_menu_list;
+		return MENU_EPIPHANY_QUIT;
+	}
 
 	DEBOUT("Menu selected: "<<m_menu_list->get_selected()<<"\n");
 
@@ -172,7 +176,11 @@ Sint32 Menu::go()
 		{
 			return_action = MENU_EPIPHANY_NONE;
 			Menu_List_Options menu_options;
-			render_menu_list(&menu_options, config->get_screen_size_y()/2, config->get_screen_size_x()/3, config->get_screen_size_y()/12);
+			if(render_menu_list(&menu_options, config->get_screen_size_y()/2, config->get_screen_size_x()/3, config->get_screen_size_y()/12))
+			{
+				delete m_menu_list;
+				return MENU_EPIPHANY_QUIT;
+			}
 			break;
 		}
 		case Menu_List_Epiphany::MENU_QUIT:
@@ -211,7 +219,7 @@ void Menu::print_menu_background()
 
 
 
-void Menu::render_menu_list(Menu_List* menu_list, Sint32 menu_top_point, Sint32 menu_left_point, Sint32 menu_vertical_distance)
+bool Menu::render_menu_list(Menu_List* menu_list, Sint32 menu_top_point, Sint32 menu_left_point, Sint32 menu_vertical_distance)
 {
 	Uint32 current_time;
 
@@ -277,6 +285,11 @@ void Menu::render_menu_list(Menu_List* menu_list, Sint32 menu_top_point, Sint32 
 			menu_list->action_press();
 		}
 		
+		if(input->get_quit())
+		{
+			return true;
+		}
+		
 		
 		
 		m_selector.update_frame();
@@ -303,6 +316,6 @@ void Menu::render_menu_list(Menu_List* menu_list, Sint32 menu_top_point, Sint32 
 
 		input->update();
 
-	}	
+	}
+	return false;
 }
-

@@ -158,7 +158,7 @@ AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
-CPPFLAGS =  -DRESOURCE_PATH="\"${datarootdir}/epiphany\""
+CPPFLAGS =  -DRESOURCE_PATH="\"/home/tim/epiphany\""
 CSCOPE = cscope
 CTAGS = ctags
 CXX = g++
@@ -212,7 +212,7 @@ am__xargs_n = xargs -n
 bindir = ${exec_prefix}/bin
 build_alias = 
 builddir = .
-datadir = ${datarootdir}
+datadir = /home/tim
 datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE}
 dvidir = ${docdir}
@@ -230,7 +230,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr/local
+prefix = /home/tim
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run

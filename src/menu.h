@@ -70,7 +70,7 @@ public:
 
 	bool increase_unsolved_level();
 	
-	void render_menu_list(Menu_List* menu_list, Sint32 menu_top_point, Sint32 menu_left_point, Sint32 menu_vertical_distance);
+	bool render_menu_list(Menu_List* menu_list, Sint32 menu_top_point, Sint32 menu_left_point, Sint32 menu_vertical_distance);
 	
 	void print_menu_background();
 

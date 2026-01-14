@@ -35,7 +35,8 @@ const char* Menu_Entry_Ranged::get_string()
 	char value_string[255];
 	sprintf(value_string, "%d", m_current_value);
 	result+= value_string;
-	return result.c_str();
+	m_cached_string = result;
+	return m_cached_string.c_str();
 }
 
 

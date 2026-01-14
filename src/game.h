@@ -58,8 +58,9 @@ private:
 	char m_ini_path[255];
 	
 	Uint32 m_frame_skip;
-
 	
+	bool m_quit_requested;
+
 	Uint32 find_levels_in_dir();
 
 public:
