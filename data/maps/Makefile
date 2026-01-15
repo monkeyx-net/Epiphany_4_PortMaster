@@ -158,7 +158,7 @@ AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
-CPPFLAGS =  -DRESOURCE_PATH="\"/home/tim/epiphany/epiphany\""
+CPPFLAGS =  -DRESOURCE_PATH="\"${datarootdir}/epiphany\""
 CSCOPE = cscope
 CTAGS = ctags
 CXX = g++
@@ -212,7 +212,7 @@ am__xargs_n = xargs -n
 bindir = ${exec_prefix}/bin
 build_alias = 
 builddir = .
-datadir = /home/tim/epiphany
+datadir = ${datarootdir}
 datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE}
 dvidir = ${docdir}

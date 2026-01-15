@@ -421,14 +421,9 @@ void Game::go()
 			m_level=new Level();
   		
 			char current_level_path[255];
-  		
-			sprintf(current_level_path, "%s", (Resource_Factory::instance()->get_resource_path().c_str()));
-  		
-			sprintf(current_level_path, "%s%s", current_level_path, "/maps/level");
-  	
-			sprintf(current_level_path, "%s%d", current_level_path, (menu.get_current_level()));
-  		
-			sprintf(current_level_path, "%s%s", current_level_path, ".map");
+			const char* res_path = Resource_Factory::instance()->get_resource_path().c_str();
+			snprintf(current_level_path, sizeof(current_level_path),
+			         "%s/maps/level%d.map", res_path, menu.get_current_level());
   	
 			DEBOUT("Loading map: "<<current_level_path<<"\n");
 			
@@ -587,19 +582,17 @@ void Game::load_config()
 Uint32 Game::find_levels_in_dir()
 {
 	Uint32 result = 0;
-	char base_path[255];
 	char level_path[255];
-	
-	sprintf(base_path, "%s%s", Resource_Factory::instance()->get_resource_path().c_str(), "/maps/level");
-	
-	sprintf(level_path, "%s%d%s", base_path, result, ".map");
+	const char* res_path = Resource_Factory::instance()->get_resource_path().c_str();
+
+	snprintf(level_path, sizeof(level_path), "%s/maps/level%d.map", res_path, result);
 	FILE* pFile = fopen (level_path,"r");
 	while(pFile != NULL)
 	{
 		DEBOUT("Found "<<level_path<<".\n");
 		fclose(pFile);
 		result++;
-		sprintf(level_path, "%s%d%s", base_path, result, ".map");
+		snprintf(level_path, sizeof(level_path), "%s/maps/level%d.map", res_path, result);
 		pFile = fopen (level_path,"r");
 	}
 	return result;
@@ -737,5 +730,4 @@ Game* Game::instance()
 	}
 	return _instance;
 }
-
 
