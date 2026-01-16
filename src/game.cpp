@@ -127,12 +127,9 @@ bool Game::main_loop()
 
 			if(m_frame_limiter_enabled==true)
 			{
-				while(SDL_GetTicks()-current_frame_time<msec_per_frame)
-				{
-					if((SDL_GetTicks()-current_frame_time)<(msec_per_frame-5))
-					{
-						SDL_Delay(5);
-					}
+				Uint32 elapsed = SDL_GetTicks() - current_frame_time;
+				if (elapsed < msec_per_frame) {
+					SDL_Delay(msec_per_frame - elapsed);
 				}
 			}
 		

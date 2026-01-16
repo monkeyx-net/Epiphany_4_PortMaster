@@ -42,7 +42,7 @@ void Epiconfig::set_default_values()
 	//m_msec_per_frame=176/m_max_anim_drawn;
 	//m_msec_per_frame=150/m_max_anim_drawn;
 	//m_msec_per_frame=240/m_max_anim_drawn;
-	m_msec_per_frame=140/m_max_anim_drawn;
+	m_msec_per_frame=200/m_max_anim_drawn;
 	
 	m_volume_sound = 8;
 	
