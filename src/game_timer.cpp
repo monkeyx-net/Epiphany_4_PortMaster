@@ -70,14 +70,12 @@ void Game_Timer::start()
 
 const char* Game_Timer::get_time_string()
 {
-	static char time_string[16];
-
 	Sint32 minutes=m_total_time/60;
 	Sint32 seconds=m_total_time%60;
 
-	snprintf(time_string, sizeof(time_string), "%02d:%02d", minutes, seconds);
+	snprintf(m_time_string, sizeof(m_time_string), "%02d:%02d", minutes, seconds);
 
-	return time_string;
+	return m_time_string;
 }
 
 Uint32 Game_Timer::get_time()

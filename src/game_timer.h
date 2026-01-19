@@ -27,6 +27,8 @@ private:
 	Uint32 m_total_time;
 	//last acquired time
 	Uint32 m_last_time;
+	//buffer for time string
+	char m_time_string[16];
 public:
 	Game_Timer(Uint32 total_time = 0);
 	

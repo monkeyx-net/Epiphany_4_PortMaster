@@ -32,11 +32,10 @@ void Menu_Entry_Ranged::set_current_value(Uint32 current_value)
 	
 const char* Menu_Entry_Ranged::get_string()
 {
-	static char result_buffer[512];
 	char value_string[32];
 	snprintf(value_string, sizeof(value_string), "%u", m_current_value);
-	snprintf(result_buffer, sizeof(result_buffer), "%s%s", m_string.c_str(), value_string);
-	return result_buffer;
+	m_result_string = m_string + value_string;
+	return m_result_string.c_str();
 }
 
 

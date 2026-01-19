@@ -23,14 +23,16 @@ class Menu_Entry_Ranged : public Menu_Entry
 {
 
 	protected:
-	
+
 		Uint32 m_range_begin;
-	
+
 		Uint32 m_range_end;
-		
+
 		Uint32 m_current_value;
-		
+
 		std::string m_string;
+
+		mutable std::string m_result_string;
 	
 	public:
 
