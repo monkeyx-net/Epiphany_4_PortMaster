@@ -27,6 +27,7 @@ uname -v = #1 SMP PREEMPT_DYNAMIC Sun, 11 Jan 2026 17:10:53 +0000
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
+PATH: /home/tim/bin/
 PATH: /usr/local/sbin/
 PATH: /usr/local/bin/
 PATH: /usr/bin/
@@ -374,7 +375,7 @@ am_cv_xargs_n_works=yes
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} '\''/home/tim/Downloads/epiphany-0.7.0/missing'\'' aclocal-1.18'
+ACLOCAL='${SHELL} '\''/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing'\'' aclocal-1.18'
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
 AMDEP_TRUE=''
@@ -383,9 +384,9 @@ AM_BACKSLASH='\'
 AM_DEFAULT_V='$(AM_DEFAULT_VERBOSITY)'
 AM_DEFAULT_VERBOSITY='1'
 AM_V='$(V)'
-AUTOCONF='${SHELL} '\''/home/tim/Downloads/epiphany-0.7.0/missing'\'' autoconf'
-AUTOHEADER='${SHELL} '\''/home/tim/Downloads/epiphany-0.7.0/missing'\'' autoheader'
-AUTOMAKE='${SHELL} '\''/home/tim/Downloads/epiphany-0.7.0/missing'\'' automake-1.18'
+AUTOCONF='${SHELL} '\''/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing'\'' autoconf'
+AUTOHEADER='${SHELL} '\''/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing'\'' autoheader'
+AUTOMAKE='${SHELL} '\''/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing'\'' automake-1.18'
 AWK='gawk'
 CC='gcc'
 CCDEPMODE='depmode=gcc3'
@@ -412,7 +413,7 @@ LDFLAGS=''
 LIBOBJS=''
 LIBS='-lSDL_mixer -lSDL '
 LTLIBOBJS=''
-MAKEINFO='${SHELL} '\''/home/tim/Downloads/epiphany-0.7.0/missing'\'' makeinfo'
+MAKEINFO='${SHELL} '\''/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing'\'' makeinfo'
 MKDIR_P='/usr/bin/mkdir -p'
 OBJEXT='o'
 PACKAGE='epiphany'
@@ -455,7 +456,7 @@ host_alias=''
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh='${SHELL} /home/tim/Downloads/epiphany-0.7.0/install-sh'
+install_sh='${SHELL} /run/media/tim/DATA/PM/Epiphany_4_PortMaster/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'

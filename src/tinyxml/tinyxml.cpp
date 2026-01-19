@@ -952,7 +952,8 @@ bool TiXmlDocument::LoadFile( const char* filename, TiXmlEncoding encoding )
 		fseek( file, 0, SEEK_SET );
 
 		// Strange case, but good to handle up front.
-		if ( length == 0 )
+		// Also check for ftell error (-1) which on 64-bit systems becomes huge
+		if ( length <= 0 )
 		{
 			fclose( file );
 			return false;
@@ -961,7 +962,7 @@ bool TiXmlDocument::LoadFile( const char* filename, TiXmlEncoding encoding )
 		// If we have a file, assume it is all one big XML file, and read it in.
 		// The document parser may decide the document ends sooner than the entire file, however.
 		TIXML_STRING data;
-		data.reserve( length );
+		data.reserve( (size_t)length );
 
 		const int BUF_SIZE = 2048;
 		char buf[BUF_SIZE];
