@@ -5519,12 +5519,12 @@ then :
 	printf "%s\n" "#define DEBUG_MODE 1" >>confdefs.h
 
 	CXXFLAGS="$CXXFLAGS -O0 -g -Wall -pedantic"
-	CPPFLAGS="$CPPFLAGS -DRESOURCE_PATH=\"\\\"${datadir}/${PACKAGE}\\\"\""
+	CPPFLAGS="$CPPFLAGS -DRESOURCE_PATH=\"\\\"${datadir}/${PACKAGE}\\\"\" -DTIXML_USE_STL"
 
 else case e in #(
   e)
     CXXFLAGS="$CXXFLAGS -O2"
-   CPPFLAGS="$CPPFLAGS -DRESOURCE_PATH=\"\\\"${datadir}/${PACKAGE}\\\"\""
+   CPPFLAGS="$CPPFLAGS -DRESOURCE_PATH=\"\\\"${datadir}/${PACKAGE}\\\"\" -DTIXML_USE_STL"
 
 	 ;;
 esac

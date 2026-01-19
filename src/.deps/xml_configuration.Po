@@ -163,8 +163,7 @@ xml_configuration.o: xml_configuration.cpp /usr/include/stdc-predef.h \
  /usr/include/SDL/SDL_timer.h /usr/include/SDL/SDL_version.h epiconfig.h \
  xml_configuration.h abstract_configuration.h \
  /usr/include/c++/15.2.1/cstring /usr/include/c++/15.2.1/cassert \
- /usr/include/assert.h tinyxml/tinyxml.h tinyxml/tinystr.h \
- tinyxml/tinyxml.h
+ /usr/include/assert.h tinyxml/tinyxml.h
 /usr/include/stdc-predef.h:
 dephine.h:
 ../config.h:
@@ -410,6 +409,4 @@ abstract_configuration.h:
 /usr/include/c++/15.2.1/cstring:
 /usr/include/c++/15.2.1/cassert:
 /usr/include/assert.h:
-tinyxml/tinyxml.h:
-tinyxml/tinystr.h:
 tinyxml/tinyxml.h:

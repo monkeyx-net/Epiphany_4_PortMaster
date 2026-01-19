@@ -155,8 +155,8 @@ am__define_uniq_tagged_files = \
   done | $(am__uniquify_input)`
 DIST_SUBDIRS = $(SUBDIRS)
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in AUTHORS \
-	COPYING ChangeLog INSTALL NEWS README TODO compile install-sh \
-	missing
+	COPYING ChangeLog INSTALL NEWS README TODO compile depcomp \
+	install-sh missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -213,7 +213,7 @@ AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
-CPPFLAGS =  -DRESOURCE_PATH="\"${datarootdir}/epiphany\""
+CPPFLAGS =  -DRESOURCE_PATH="\"${datarootdir}/epiphany\"" -DTIXML_USE_STL
 CSCOPE = cscope
 CTAGS = ctags
 CXX = g++

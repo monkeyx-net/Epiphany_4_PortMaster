@@ -158,7 +158,7 @@ AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
-CPPFLAGS =  -DRESOURCE_PATH="\"${datarootdir}/epiphany\""
+CPPFLAGS =  -DRESOURCE_PATH="\"${datarootdir}/epiphany\"" -DTIXML_USE_STL
 CSCOPE = cscope
 CTAGS = ctags
 CXX = g++

@@ -161,8 +161,7 @@ epiconfig.o: epiconfig.cpp /usr/include/stdc-predef.h epiconfig.h \
  /usr/include/SDL/SDL_video.h /usr/include/SDL/SDL_joystick.h \
  /usr/include/SDL/SDL_quit.h /usr/include/SDL/SDL_loadso.h \
  /usr/include/SDL/SDL_timer.h /usr/include/SDL/SDL_version.h \
- tinyxml/tinyxml.h /usr/include/assert.h tinyxml/tinystr.h \
- tinyxml/tinyxml.h sprite.h surface.h
+ tinyxml/tinyxml.h /usr/include/assert.h sprite.h surface.h
 /usr/include/stdc-predef.h:
 epiconfig.h:
 dephine.h:
@@ -405,7 +404,5 @@ dephine.h:
 /usr/include/SDL/SDL_version.h:
 tinyxml/tinyxml.h:
 /usr/include/assert.h:
-tinyxml/tinystr.h:
-tinyxml/tinyxml.h:
 sprite.h:
 surface.h:
