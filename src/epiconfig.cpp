@@ -42,7 +42,7 @@ void Epiconfig::set_default_values()
 	//m_msec_per_frame=176/m_max_anim_drawn;
 	//m_msec_per_frame=150/m_max_anim_drawn;
 	//m_msec_per_frame=240/m_max_anim_drawn;
-	m_msec_per_frame=200/m_max_anim_drawn;
+	m_msec_per_frame=140/m_max_anim_drawn;
 	
 	m_volume_sound = 8;
 	
@@ -277,26 +277,26 @@ void Epiconfig::save_values_to_file(char* filename)
 	TiXmlElement * e_music_volume = new TiXmlElement( "music_volume" );
 	e_config->LinkEndChild( e_music_volume );
 	
-	char* text_screen_size_x = new char[10];
-	
-	char* text_screen_size_y = new char[10];
-	
-	char* text_last_level = new char[10];
-	
-	sprintf(text_last_level, "%d", m_last_level);
-	
-	sprintf(text_screen_size_x, "%d", m_screen_size_x);
-	
-	sprintf(text_screen_size_y, "%d", m_screen_size_y);
-	
-	
-	char* text_sound_volume = new char[10];
-	
-	sprintf(text_sound_volume, "%d", m_volume_sound);
-	
-	char* text_music_volume = new char[10];
-	
-	sprintf(text_music_volume, "%d", m_volume_music);
+	char* text_screen_size_x = new char[16];
+
+	char* text_screen_size_y = new char[16];
+
+	char* text_last_level = new char[16];
+
+	snprintf(text_last_level, 16, "%u", m_last_level);
+
+	snprintf(text_screen_size_x, 16, "%u", m_screen_size_x);
+
+	snprintf(text_screen_size_y, 16, "%u", m_screen_size_y);
+
+
+	char* text_sound_volume = new char[16];
+
+	snprintf(text_sound_volume, 16, "%u", m_volume_sound);
+
+	char* text_music_volume = new char[16];
+
+	snprintf(text_music_volume, 16, "%u", m_volume_music);
 	
 	TiXmlText * screen_x = new TiXmlText( text_screen_size_x );
 	e_screen_x->LinkEndChild( screen_x );

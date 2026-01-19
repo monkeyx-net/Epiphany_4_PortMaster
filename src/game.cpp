@@ -33,7 +33,6 @@
 #include "game_timer.h"
 #include <cstdlib>
 #include <cstdio>
-#include <cstring>
 #include <SDL/SDL.h>
 #include <string>
 #include <cassert>
@@ -65,12 +64,6 @@ bool Game::main_loop()
 				(!input->get_fire())
 				)
 	{
-
-		if(input->get_quit())
-		{
-			m_quit_requested = true;
-			return false;
-		}
 
 		if(input->get_pause())
 		{
@@ -127,9 +120,12 @@ bool Game::main_loop()
 
 			if(m_frame_limiter_enabled==true)
 			{
-				Uint32 elapsed = SDL_GetTicks() - current_frame_time;
-				if (elapsed < msec_per_frame) {
-					SDL_Delay(msec_per_frame - elapsed);
+				while(SDL_GetTicks()-current_frame_time<msec_per_frame)
+				{
+					if((SDL_GetTicks()-current_frame_time)<(msec_per_frame-5))
+					{
+						SDL_Delay(5);
+					}
 				}
 			}
 		
@@ -328,10 +324,8 @@ void Game::draw_score()
 	Font* time_font = font_man->get_font(m_time_font);
 	
 	char text[255];
-	
-	sprintf(text, "%s",("Score: "));
-	
-	sprintf(text, "%s%d", text,(Sint32)m_level->get_player().get_score());
+
+	snprintf(text, sizeof(text), "Score: %d", (Sint32)m_level->get_player().get_score());
 	
 	game_font->write(4,real_game_size_y+5, text);
 
@@ -340,8 +334,7 @@ void Game::draw_score()
 
 	if(remaining>0)
 	{
-		sprintf(text,"%s","Remaining:   ");
-		sprintf(text,"%s%d", text, remaining);
+		snprintf(text, sizeof(text), "Remaining:   %d", remaining);
 		game_font->write(200,real_game_size_y+5, text);
 
 	}
@@ -401,7 +394,6 @@ void Game::draw_score()
 void Game::go()
 {
 
-	m_quit_requested = false;
 
 	Menu menu(m_max_num_of_levels,m_unsolved_level);
 
@@ -416,38 +408,20 @@ void Game::go()
   		{
   		
 			m_level=new Level();
-  		
-			char current_level_path[255];
-			std::string res_path = Resource_Factory::instance()->get_resource_path();
-			snprintf(current_level_path, sizeof(current_level_path),
-			         "%s/maps/level%d.map", res_path.c_str(), menu.get_current_level());
+
+			char current_level_path[512];
+
+			snprintf(current_level_path, sizeof(current_level_path), "%s/maps/level%u.map",
+				Resource_Factory::instance()->get_resource_path().c_str(),
+				menu.get_current_level());
   	
 			DEBOUT("Loading map: "<<current_level_path<<"\n");
-			
-			// Check if map file exists before loading
-			FILE* test_file = fopen(current_level_path, "r");
-			if(test_file == NULL)
-			{
-				DEBWARN("Error: Map file not found: "<<current_level_path<<"\n");
-				delete m_level;
-				m_level = NULL;
-				Music_Manager::instance()->play(MUS_MENU);
-				play=menu.go();
-				continue;
-			}
-			fclose(test_file);
   	
 			m_level->load_map(current_level_path);
   			
   			show_loading();
   			  	
 			bool result=main_loop();
-
-			if(m_quit_requested)
-			{
-				play=Menu::MENU_EPIPHANY_QUIT;
-				break;
-			}
   	
 			SDL_Delay(500);
     	 	
@@ -496,6 +470,8 @@ void Game::go()
 	}
 	
 
+	
+	this->show_credits();
 }
 
 
@@ -512,20 +488,16 @@ void Game::init()
 	
 	m_frame_skip = 0;
 	
-	m_quit_requested = false;
-	
 	#ifdef _WIN32
 	sprintf(m_ini_path, "%s", "./epiphany.ini");
 	#else
-	const char* home_env = getenv("HOME");
-	if(home_env == NULL || strlen(home_env) == 0)
+	std::string user_home(getenv("HOME"));
+	if(user_home=="")
 	{
-		// Fallback to current directory if HOME is not set
-		sprintf(m_ini_path, "%s", "./.epiphany");
+		assert(!"Unable to find HOME environment variable");
 	}
 	else
 	{
-		std::string user_home(home_env);
 		user_home+="/.epiphany";
 		sprintf(m_ini_path, "%s", user_home.c_str());
 	}
@@ -579,17 +551,18 @@ void Game::load_config()
 Uint32 Game::find_levels_in_dir()
 {
 	Uint32 result = 0;
-	char level_path[255];
-	std::string res_path = Resource_Factory::instance()->get_resource_path();
+	char level_path[512];
 
-	snprintf(level_path, sizeof(level_path), "%s/maps/level%d.map", res_path.c_str(), result);
+	snprintf(level_path, sizeof(level_path), "%s/maps/level%u.map",
+		Resource_Factory::instance()->get_resource_path().c_str(), result);
 	FILE* pFile = fopen (level_path,"r");
 	while(pFile != NULL)
 	{
 		DEBOUT("Found "<<level_path<<".\n");
 		fclose(pFile);
 		result++;
-		snprintf(level_path, sizeof(level_path), "%s/maps/level%d.map", res_path.c_str(), result);
+		snprintf(level_path, sizeof(level_path), "%s/maps/level%u.map",
+			Resource_Factory::instance()->get_resource_path().c_str(), result);
 		pFile = fopen (level_path,"r");
 	}
 	return result;
@@ -727,4 +700,5 @@ Game* Game::instance()
 	}
 	return _instance;
 }
+
 

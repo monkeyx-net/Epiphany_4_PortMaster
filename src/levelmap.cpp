@@ -18,7 +18,6 @@
 #include "levelmap.h"
 #include "myparser.h"
 #include "epimap.h"
-#include <cassert>
 #include "entity_type.h"
 #include <vector>
 #include <string>
@@ -38,13 +37,6 @@ Levelmap::Levelmap(const char* map_path)
 void Levelmap::load_map(const char* map_path)
 {
 	std::ifstream scriptfile(map_path);
-	
-	if(!scriptfile.is_open() || !scriptfile.good())
-	{
-		DEBWARN("Error: Cannot open map file: "<<map_path<<"\n");
-		assert(!"Error: Cannot open map file");
-		return;
-	}
 
 	myparser parsy;
 	parsy<<scriptfile;
@@ -53,8 +45,8 @@ void Levelmap::load_map(const char* map_path)
 	DEBOUT("Map acquired.\n");
 	m_min_score=epimap.get_min_score();
 	m_max_time=epimap.get_max_time();
-	m_name=epimap.get_name();
-	m_author=epimap.get_author();
+	m_name=epimap.get_name().c_str();
+	m_author=epimap.get_author().c_str();
 	m_size_x=epimap.get_size_x();
 	m_size_y=epimap.get_size_y();
 	DEBOUT("Getting Map... ");
@@ -83,12 +75,12 @@ Uint32 Levelmap::get_max_time()
 
 const char* Levelmap::get_name()
 {
-	return m_name.c_str();
+	return m_name;
 }
 
 const char* Levelmap::get_author()
 {
-	return m_author.c_str();
+	return m_author;
 }
 
 Uint32 Levelmap::get_size_x()
@@ -114,3 +106,4 @@ Entity_Type Levelmap::get_map_element(Uint32 x, Uint32 y)
 	
 	return m_map[x][y];
 }
+

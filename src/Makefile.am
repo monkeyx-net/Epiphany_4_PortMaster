@@ -19,7 +19,6 @@ epiphany_game_SOURCES = sfx.cpp main.cpp level.cpp sample.cpp entity.cpp \
 	commandline_configuration.cpp
 
 epiphany_game_LDADD = -lSDL -lSDL_mixer
-epiphany_game_LDFLAGS = -static-libgcc -static-libstdc++
 
 
 noinst_HEADERS = entity_type.h emdlparser.h levelmap.h \

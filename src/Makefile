@@ -132,8 +132,6 @@ am_epiphany_game_OBJECTS = sfx.$(OBJEXT) main.$(OBJEXT) \
 	commandline_configuration.$(OBJEXT)
 epiphany_game_OBJECTS = $(am_epiphany_game_OBJECTS)
 epiphany_game_DEPENDENCIES =
-epiphany_game_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
-	$(epiphany_game_LDFLAGS) $(LDFLAGS) -o $@
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -235,12 +233,12 @@ am__define_uniq_tagged_files = \
   done | $(am__uniquify_input)`
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} '/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing' aclocal-1.18
+ACLOCAL = ${SHELL} '/home/tim/Downloads/epiphany-0.7.0/missing' aclocal-1.18
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} '/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing' autoconf
-AUTOHEADER = ${SHELL} '/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing' autoheader
-AUTOMAKE = ${SHELL} '/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing' automake-1.18
+AUTOCONF = ${SHELL} '/home/tim/Downloads/epiphany-0.7.0/missing' autoconf
+AUTOHEADER = ${SHELL} '/home/tim/Downloads/epiphany-0.7.0/missing' autoheader
+AUTOMAKE = ${SHELL} '/home/tim/Downloads/epiphany-0.7.0/missing' automake-1.18
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -268,7 +266,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = -lSDL_mixer -lSDL 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} '/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing' makeinfo
+MAKEINFO = ${SHELL} '/home/tim/Downloads/epiphany-0.7.0/missing' makeinfo
 MKDIR_P = /usr/bin/mkdir -p
 OBJEXT = o
 PACKAGE = epiphany
@@ -283,10 +281,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = 
 VERSION = 0.7.0
-abs_builddir = /run/media/tim/DATA/PM/Epiphany_4_PortMaster/src
-abs_srcdir = /run/media/tim/DATA/PM/Epiphany_4_PortMaster/src
-abs_top_builddir = /run/media/tim/DATA/PM/Epiphany_4_PortMaster
-abs_top_srcdir = /run/media/tim/DATA/PM/Epiphany_4_PortMaster
+abs_builddir = /home/tim/Downloads/epiphany-0.7.0/src
+abs_srcdir = /home/tim/Downloads/epiphany-0.7.0/src
+abs_top_builddir = /home/tim/Downloads/epiphany-0.7.0
+abs_top_srcdir = /home/tim/Downloads/epiphany-0.7.0
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -308,7 +306,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /run/media/tim/DATA/PM/Epiphany_4_PortMaster/install-sh
+install_sh = ${SHELL} /home/tim/Downloads/epiphany-0.7.0/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -346,7 +344,6 @@ epiphany_game_SOURCES = sfx.cpp main.cpp level.cpp sample.cpp entity.cpp \
 	commandline_configuration.cpp
 
 epiphany_game_LDADD = -lSDL -lSDL_mixer
-epiphany_game_LDFLAGS = -static-libgcc -static-libstdc++
 noinst_HEADERS = entity_type.h emdlparser.h levelmap.h \
 	game.h screen.h menu.h sfx.h except.h level.h entity_factory.h \
 	fonts/font_manager.h fonts/font_factory.h fonts/font.h fonts/SFont.h \
@@ -443,7 +440,7 @@ clean-binPROGRAMS:
 
 epiphany-game$(EXEEXT): $(epiphany_game_OBJECTS) $(epiphany_game_DEPENDENCIES) $(EXTRA_epiphany_game_DEPENDENCIES) 
 	@rm -f epiphany-game$(EXEEXT)
-	$(AM_V_CXXLD)$(epiphany_game_LINK) $(epiphany_game_OBJECTS) $(epiphany_game_LDADD) $(LIBS)
+	$(AM_V_CXXLD)$(CXXLINK) $(epiphany_game_OBJECTS) $(epiphany_game_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)

@@ -155,8 +155,8 @@ am__define_uniq_tagged_files = \
   done | $(am__uniquify_input)`
 DIST_SUBDIRS = $(SUBDIRS)
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in AUTHORS \
-	COPYING ChangeLog INSTALL NEWS README TODO compile depcomp \
-	install-sh missing
+	COPYING ChangeLog INSTALL NEWS README TODO compile install-sh \
+	missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -203,12 +203,12 @@ am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
 distcleancheck_listfiles = \
   find . \( -type f -a \! \
             \( -name .nfs* -o -name .smb* -o -name .__afs* \) \) -print
-ACLOCAL = ${SHELL} '/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing' aclocal-1.18
+ACLOCAL = ${SHELL} '/home/tim/Downloads/epiphany-0.7.0/missing' aclocal-1.18
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} '/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing' autoconf
-AUTOHEADER = ${SHELL} '/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing' autoheader
-AUTOMAKE = ${SHELL} '/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing' automake-1.18
+AUTOCONF = ${SHELL} '/home/tim/Downloads/epiphany-0.7.0/missing' autoconf
+AUTOHEADER = ${SHELL} '/home/tim/Downloads/epiphany-0.7.0/missing' autoheader
+AUTOMAKE = ${SHELL} '/home/tim/Downloads/epiphany-0.7.0/missing' automake-1.18
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -236,7 +236,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = -lSDL_mixer -lSDL 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} '/run/media/tim/DATA/PM/Epiphany_4_PortMaster/missing' makeinfo
+MAKEINFO = ${SHELL} '/home/tim/Downloads/epiphany-0.7.0/missing' makeinfo
 MKDIR_P = /usr/bin/mkdir -p
 OBJEXT = o
 PACKAGE = epiphany
@@ -251,10 +251,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = 
 VERSION = 0.7.0
-abs_builddir = /run/media/tim/DATA/PM/Epiphany_4_PortMaster
-abs_srcdir = /run/media/tim/DATA/PM/Epiphany_4_PortMaster
-abs_top_builddir = /run/media/tim/DATA/PM/Epiphany_4_PortMaster
-abs_top_srcdir = /run/media/tim/DATA/PM/Epiphany_4_PortMaster
+abs_builddir = /home/tim/Downloads/epiphany-0.7.0
+abs_srcdir = /home/tim/Downloads/epiphany-0.7.0
+abs_top_builddir = /home/tim/Downloads/epiphany-0.7.0
+abs_top_srcdir = /home/tim/Downloads/epiphany-0.7.0
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -276,7 +276,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /run/media/tim/DATA/PM/Epiphany_4_PortMaster/install-sh
+install_sh = ${SHELL} /home/tim/Downloads/epiphany-0.7.0/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

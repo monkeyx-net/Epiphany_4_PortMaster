@@ -26,9 +26,6 @@ distribution.
 #ifndef TINYXML_INCLUDED
 #define TINYXML_INCLUDED
 
-// Use std::string instead of custom TiXmlString to avoid memory issues
-#define TIXML_USE_STL
-
 #ifdef _MSC_VER
 #pragma warning( disable : 4530 )
 #pragma warning( disable : 4786 )
