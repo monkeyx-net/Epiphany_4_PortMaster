@@ -29,8 +29,11 @@ const char* Menu_Entry_Bool::get_string()
 {
 	if(m_current_value == 0)
 	{
-		return (m_string+std::string(" Off")).c_str();
+		m_cached_string = m_string + " Off";
 	}
-	
-	return (m_string+std::string(" On")).c_str();
+	else
+	{
+		m_cached_string = m_string + " On";
+	}
+	return m_cached_string.c_str();
 }

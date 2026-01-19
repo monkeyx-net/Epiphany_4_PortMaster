@@ -24,9 +24,10 @@ class Menu_Entry_Bool : public Menu_Entry
 {
 
 	protected:
-	
+
 		std::string m_string;
-	
+		std::string m_cached_string;
+
 		Uint32 m_current_value;
 		
 	
