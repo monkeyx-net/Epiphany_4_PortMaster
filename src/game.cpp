@@ -418,9 +418,9 @@ void Game::go()
 			m_level=new Level();
   		
 			char current_level_path[255];
-			const char* res_path = Resource_Factory::instance()->get_resource_path().c_str();
+			std::string res_path = Resource_Factory::instance()->get_resource_path();
 			snprintf(current_level_path, sizeof(current_level_path),
-			         "%s/maps/level%d.map", res_path, menu.get_current_level());
+			         "%s/maps/level%d.map", res_path.c_str(), menu.get_current_level());
   	
 			DEBOUT("Loading map: "<<current_level_path<<"\n");
 			
@@ -580,16 +580,16 @@ Uint32 Game::find_levels_in_dir()
 {
 	Uint32 result = 0;
 	char level_path[255];
-	const char* res_path = Resource_Factory::instance()->get_resource_path().c_str();
+	std::string res_path = Resource_Factory::instance()->get_resource_path();
 
-	snprintf(level_path, sizeof(level_path), "%s/maps/level%d.map", res_path, result);
+	snprintf(level_path, sizeof(level_path), "%s/maps/level%d.map", res_path.c_str(), result);
 	FILE* pFile = fopen (level_path,"r");
 	while(pFile != NULL)
 	{
 		DEBOUT("Found "<<level_path<<".\n");
 		fclose(pFile);
 		result++;
-		snprintf(level_path, sizeof(level_path), "%s/maps/level%d.map", res_path, result);
+		snprintf(level_path, sizeof(level_path), "%s/maps/level%d.map", res_path.c_str(), result);
 		pFile = fopen (level_path,"r");
 	}
 	return result;
