@@ -132,6 +132,8 @@ am_epiphany_game_OBJECTS = sfx.$(OBJEXT) main.$(OBJEXT) \
 	commandline_configuration.$(OBJEXT)
 epiphany_game_OBJECTS = $(am_epiphany_game_OBJECTS)
 epiphany_game_DEPENDENCIES =
+epiphany_game_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
+	$(epiphany_game_LDFLAGS) $(LDFLAGS) -o $@
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -344,6 +346,7 @@ epiphany_game_SOURCES = sfx.cpp main.cpp level.cpp sample.cpp entity.cpp \
 	commandline_configuration.cpp
 
 epiphany_game_LDADD = -lSDL -lSDL_mixer
+epiphany_game_LDFLAGS = -static-libgcc -static-libstdc++
 noinst_HEADERS = entity_type.h emdlparser.h levelmap.h \
 	game.h screen.h menu.h sfx.h except.h level.h entity_factory.h \
 	fonts/font_manager.h fonts/font_factory.h fonts/font.h fonts/SFont.h \
@@ -440,7 +443,7 @@ clean-binPROGRAMS:
 
 epiphany-game$(EXEEXT): $(epiphany_game_OBJECTS) $(epiphany_game_DEPENDENCIES) $(EXTRA_epiphany_game_DEPENDENCIES) 
 	@rm -f epiphany-game$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(epiphany_game_OBJECTS) $(epiphany_game_LDADD) $(LIBS)
+	$(AM_V_CXXLD)$(epiphany_game_LINK) $(epiphany_game_OBJECTS) $(epiphany_game_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
