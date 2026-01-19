@@ -17,6 +17,7 @@
 #include "dephine.h"
 #include "entity_type.h"
 #include <vector>
+#include <string>
 
 #ifndef LEVELMAP_H
 #define LEVELMAP_H
@@ -27,8 +28,8 @@ protected:
 	Uint32 m_version;
 	Uint32 m_size_x;
 	Uint32 m_size_y;
-	const char* m_name;
-	const char* m_author;
+	std::string m_name;
+	std::string m_author;
 	Uint32 m_min_score;
 	Uint32 m_max_time;
 	std::vector< std::vector<Entity_Type> > m_map;
