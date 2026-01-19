@@ -2,6 +2,7 @@
 #include "xml_configuration.h"
 #include <string>
 #include <cstring>
+#include <cstdio>
 #include <cassert>
 #include "tinyxml/tinyxml.h"
 

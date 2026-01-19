@@ -17,6 +17,7 @@
 #include "epiconfig.h"
 #include "tinyxml/tinyxml.h"
 #include <cstdlib>
+#include <cstdio>
 #include "sprite.h"
 
 

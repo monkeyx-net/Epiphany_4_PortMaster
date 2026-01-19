@@ -16,6 +16,7 @@
 
 #include "dephine.h"
 #include "menu_entry_ranged.h"
+#include <cstdio>
 
 
 void Menu_Entry_Ranged::set_current_value(Uint32 current_value)

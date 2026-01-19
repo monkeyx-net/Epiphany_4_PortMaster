@@ -489,17 +489,16 @@ void Game::init()
 	m_frame_skip = 0;
 	
 	#ifdef _WIN32
-	sprintf(m_ini_path, "%s", "./epiphany.ini");
+	snprintf(m_ini_path, sizeof(m_ini_path), "%s", "./epiphany.ini");
 	#else
-	std::string user_home(getenv("HOME"));
-	if(user_home=="")
+	const char* home_env = getenv("HOME");
+	if(home_env == NULL || home_env[0] == '\0')
 	{
 		assert(!"Unable to find HOME environment variable");
 	}
 	else
 	{
-		user_home+="/.epiphany";
-		sprintf(m_ini_path, "%s", user_home.c_str());
+		snprintf(m_ini_path, sizeof(m_ini_path), "%s/.epiphany", home_env);
 	}
 	#endif
 
